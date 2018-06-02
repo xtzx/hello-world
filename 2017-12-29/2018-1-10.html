@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">
+        <LI>1</LI>
+        <LI>2</LI>
+        <LI>3</LI>
+        <LI>4</LI>
+        <LI>5</LI>
+    </div>
+    <script>
+        // var arr1 = [1,3]  
+        // var arr2 = new Array ('a','b','c')
+        // console.log(arr1)  
+        // console.log(arr2) 
+        // for(var i = arr2.length-1 ; i>=0 ; i--){
+        //     console.log(arr2[i])
+        // } 
+
+        // arr2.push('hello',' ','world',3)
+        // var arr3 = arr2.pop()
+
+        // arr2.unshift(arr2)
+        // // arr2.shift()
+        // console.log(arr2,  arr3)
+
+        // var arr4 = arr2.join('+')
+        // console.log(arr4)//第一个元素是数组的时候不显示
+
+        //concat 拼接  arr1.concat(arr2)    slice截取  arr1.slice(0,2)    不改变原有的，返回值是新生成的
+        //reserve 反转 修改并且返回 
+        // function test(){
+        //     // arguments -> 传进来的实参列表集合，本质上不是数组，但是可以像数组一样遍历
+        //     console.log(arguments);
+        //     for (var i = 0; i < arguments.length; i++){
+        //         console.log(arguments[i])
+        //     }
+        // }
+        // test('a', 'b', 'c')
+
+        // // 删除 -> 参数1： 元素的索引值    参数2：删除元素的个数   返回值是一个数组，数组中的元素是删除的元素
+        // // 添加 -> 参数1： 元素的索引值   参数2： 0     参数3： 添加元素的列表
+        // // 修改 -> 删除一个再添加一个
+        // // var res = arr.splice(2, 0, 'abc', 'def');
+        // var res = arr2.splice(2, 1, 'abc');
+        // var res = arr2.splice(2, 1, arr2);
+        // console.log(arr2)
+
+        // var arr4 = [1,99,85,9999,26]
+        // arr4.sort(function(x,y){
+        //     return x-y//从小到大排序
+        //     // return y-x/从大到小
+        // })
+        // console.log(arr4)
+
+        // 过滤数组中的字符串
+        // var tArr = [12, 'a', 'qwe', 34, 'hello', 100];
+        // function check(arr){
+        //     for(var i = 0;i<arr.length;i++){
+        //         if(typeof arr[i]=='string' )//小写string
+        //         {arr.splice(i,1)
+        //         i--}
+        // }
+        // return arr
+        // }
+        // console.log(check(tArr))
+        // function check(arr){
+        //     var temp=[]
+        //     for(var i = 0,len = arr.length ;i<len;i++){
+        //         if(typeof arr[i]=='number')
+        //         temp.push(arr[i])
+        //     }
+
+        //     return temp
+        // }
+        // console.log(check(tArr))
+        
+        // function find(arr,n){
+        //     for(var i = 0,len = arr.length;i<len;i++){
+        //         if(arr[i]===n){
+        //             return i+1
+        //         }
+        //     }
+        //     return 0
+        // }
+        // console.log(find(tArr,34))
+
+        // // js json 对象  单体对象、对象字面量  ->  通常用作前后台的数据交互格式(ajax)         属性的格式  ->  K : V 
+        // // 定义了一个空的json对象    var obj = {}; // 定义了空的 json 对象      json 对象属性的值可以是任意的数据类型
+        // var obj = {             //定义的全局变量obj会直接挂在window对象里头 不推荐使用
+        //     name: 'ming', // name , age  -> 属性
+        //     age: 50,
+        //     say: function(){ // say -> 方法       this -> 哪个对象调用了this所在的成员方法，this就指向哪个对象
+        //         console.log(this.name)  //不加this.的话理应会报错但是因为name是关键字所以是空值显示在控制台
+        //     }
+        // };
+        // obj.sex = '男'; // js 天然支持给对象动态添加属性和方法
+        // obj.speak = function(){
+        //     console.log(this.age)
+        // };
+        
+        // // json 对象的访问
+        // obj.speak()
+        // obj['say']()
+        // obj.friend = 'xdd'
+        // function test(attr){
+        //     return obj[attr]
+        // }
+        // console.log(test('sex'))
+        // console.log(obj)
+        // for(var attr in obj){
+        //     console.log(attr + ":" + obj[attr])
+        // }
+
+        // // 文章列表的数据
+        // var data = {
+        //     errCode: 1, // 有效数据
+        //     errMsg: '',
+        //     info: [
+        //         {id: 1, title: '文章标题1', link: 'http://www.baidu.com/'},
+        //         {id: 2, title: '文章标题2', link: 'http://www.baidu.com/'},
+        //         {id: 3, title: '文章标题3', link: 'http://www.baidu.com/'},
+        //         {id: 4, title: '文章标题4', link: 'http://www.baidu.com/'}
+        //     ]
+        // };
+
+        // var oDiv = document.getElementById('a')//获得的是对象    DOM -> document object model 文档对象模型  document -> 就代表整个文档
+        // console.log(oDiv)
+        // console.log(oDiv.nodeName)
+        // console.log(oDiv.nodeType)
+        // console.log(oDiv.parentNode)// parentNode -> 父节点，返回值是具体的节点对象
+        // console.log(oDiv.childNodes);// childNodes -> 获取当前节点的所有子节点，返回值是集合类型(类数组)
+
+        // // 获取所有元素类型的子节点
+        // function getChildNodes(obj){
+        //     var obj1 = obj.childNodes
+        //     var temp = []
+        //     for(var i = 0 ;i<obj1.length;i++){
+        //         if(obj1[i].nodeType === 1){
+        //             temp.push(obj1[i])
+        //         }
+        //     }return temp
+        // }
+
+        // console.log(getChildNodes(oDiv)); // [1, 2, 3]
+
+
+
+
+    </script>
+</body>
+</html>

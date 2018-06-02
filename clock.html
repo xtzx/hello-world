@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        .clock{
+            height: 642px;
+            width: 642px;
+            background: url('./img/1.jpg') no-repeat;
+            margin: 100px auto;
+            position: relative;
+
+        }
+        .hour{
+            width: 8px;
+            height: 130px;
+            background: black;
+            position: absolute;
+            left: 50%;
+            margin-left: -5px;
+            bottom: 50%;
+            -webkit-transform-origin: 50% 100%;
+        }
+        .minute{
+            width: 4px;
+            height: 180px;
+            background: burlywood;
+            position: absolute;
+            left: 50%;
+            margin-left: -4px;
+            bottom: 50%;
+            -webkit-transform-origin: 50% 100%;
+        }
+        .second{
+            width: 2px;
+            height: 250px;
+            background: gray;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            bottom: 50%;
+            -webkit-transform-origin: 50% 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <i class="hour"></i>
+        <i class="minute"></i>
+        <i class="second"></i>
+    </div>
+
+    <script>
+        var time =   function(){
+            var oHour = document.querySelector('.hour')
+            var oMinute = document.querySelector('.minute')
+            var oSecond = document.querySelector('.second')
+            var oDate = new Date()
+            var h = oDate.getHours()
+            var m = oDate.getMinutes()
+            var s = oDate.getSeconds()
+            // oHour.style.transform = 'rotate:' + + 'deg'
+            // oMinute.style.transform = 'rotate:' + + 'deg'
+            oSecond.style.transform = 'rotate(' + (s*6) + 'deg)'
+            oMinute.style.transform = 'rotate(' + (m*6) + 'deg)'
+            oHour.style.transform = 'rotate(' + ( (h + m/60)*30   ) + 'deg)'
+        }
+
+        setInterval(time,1000,false)
+        time()
+    </script>
+</body>
+</html>

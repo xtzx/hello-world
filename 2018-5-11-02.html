@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul[namee^='ul1']{
+            background: salmon;
+        }
+        ul[namee ^= 'ul1' ] :nth-child(1) {
+            background: firebrick;
+        }
+        ul[namee ^= 'ul2' ] li:nth-of-type(1) {
+            background: firebrick;
+        }
+        ul[namee ^= 'ul2' ] li:not(:last-child) {
+            background: firebrick;
+        }
+        h3{
+            font-size: 40px;
+            color: rgba(0, 0, 0, 0);
+            text-shadow: 5px 5px 5px gray;
+            -webkit-text-shadow: 5px 5px 5px gray;
+            -moz-text-shadow: 5px 5px 5px gray;
+            -ms-text-shadow: 5px 5px 5px gray;
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 1);
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border-top-left-radius: 0%;
+            border-bottom-left-radius: 0%;
+            border-radius: 200px;
+            /* border-radius: 10px; */
+            margin: 20px auto 0;
+            border: 1px solid rgba(0, 0, 0, 1);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, .5);
+            /* -webkit-box-reflect: 10px 10px 10px  rgba(0, 0, 0, .5); */
+        }
+        .box2{
+            width: 500px;
+            height: 500px;
+            background: url('./img/4.jpg') no-repeat;
+            background-size: cover;
+            border: 1px solid forestgreen;
+
+            /* 一定会铺满整个容器，很可能有一部分看见了  background-size: cover; */
+            /* 一定会看到整个图片，但是很可能x/y轴有留白 background-size: contain; */
+        }
+    </style>
+</head>
+<body>
+    
+    <ul namee = 'ul1 ul2'>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <ul namee = 'ul2 ul1'>
+        <span>123</span>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h3>
+        hello world
+    </h3>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+</html>

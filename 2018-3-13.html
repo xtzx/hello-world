@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 命名空间
+        window.KG = window.KG || {};
+        // 分配每个人的命名空间 - 技术总监来完成的
+        // common.js -> 全局的js文件，每个开发师都要引用
+        KG.HR = {};
+        // 注意：千万不要在前边加 var
+        KG.HR.getUser = function(){
+            console.log(9)
+        };
+
+
+
+        // 面向对象(组件)编程的js设计模式
+        var Fn = (function(){
+            var ObjProvite = (function(){
+                return {
+                    _setPara: function(options){
+                        this.msg = options.msg;
+                    }
+                };
+            })();
+            var Obj = function(options){
+                if (this instanceof Obj){
+                    ObjProvite._setPara.call(this, options);
+                    // ObjProvite._setPara(options);
+                } else {
+                    return new Obj(options);
+                }
+            };
+            Obj.prototype = {
+                constructor: Obj,
+                install: function(){
+                    
+                },
+                update: function(options){
+                    ObjProvite._setPara.call(this, options);
+                },
+                remove: function(){
+                    for (var attr in this){
+                        this[attr] = null;
+                    }
+                }
+            };
+            return Obj;
+        })();
+        // 第一种调用方式
+        // var obj = new Fn();
+        // 第二种调用方式
+        Fn();
+
+    </script>
+</body>
+</html>

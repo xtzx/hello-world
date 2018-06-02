@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .btn{
+        padding: 50px  80spx;
+        margin-top: 50px;
+        margin-left: 200px;
+    }
+    #div1{
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        margin-left: 150px;
+        background: gray;
+    }
+    #div5{
+        width: 50px;
+        height: 50px;
+        background: gray;
+        position: absolute;
+        /* margin: auto;//绝对定位不好用 */
+        /* left: 50%;
+        margin-left: -50px; */
+    }
+</style>
+<body>
+    <!-- <textarea name="" id="t1" cols="30" rows="10"></textarea> -->
+    <div id="div5">Go!!</div>
+    <!-- <select id="sel1">
+            <option value="1">列表1</option>
+            <option value="2">列表2</option>
+            <option value="3">列表3</option>
+        </select>
+    <button class="btn">click</button>
+    <div id="div1"></div>
+    <!-- <a href="http://baidu.com" id="a1">GoGOGO</a> -->
+    <!-- <input type="text" id="inp1" value='please input...'> --> 
+    <script>
+        // document.querySelectorAll('#t1')[0].onkeydown = function(ev){
+        // // 监听组合按键
+        // if (ev.keyCode == 13 && ev.ctrlKey){
+        //         console.log('后台发送数据');
+        //     }
+        // }
+
+        var timer = null
+        document.onkeydown = function(ev){//38 40 37 39  
+        if(!timer){
+            timer = setInterval(function(){
+                var obj2 = document.querySelectorAll('#div5')[0]
+            if(ev.keyCode == 37){
+                obj2.style.marginLeft = obj2.offsetLeft - 10 +'px'
+                console.log(obj2.offsetLeft)
+            }else{
+                if(ev.keyCode == 39)
+                obj2.style.marginLeft = obj2.offsetLeft + 10 +'px'//多8
+                console.log(obj2.offsetLeft)
+            }
+            },20)
+        }
+        }
+        document.onkeyup = function(){
+        clearInterval(timer);
+        timer = null;
+        }
+        // 定义一个时间句柄
+        var timer = null;
+
+        // // 2. 添加事件
+        // document.onkeydown = function(ev){
+        //     console.log(ev.keyCode);
+        //     // 必须要保证，当按键按住不放的时候，一定只有一个定时在执行
+        //     if (!timer){
+        //         timer = setInterval(function(){
+        //             switch (ev.keyCode){
+        //                 case 37: // 左
+        //                     oDiv.style.left = oDiv.offsetLeft - 10 + 'px';
+        //                     break;
+        //                 case 39: // 右
+        //                     oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+        //                     break;
+        //             }
+        //         }, 20);
+        //     }  
+        // };
+        // document.onkeyup = function(){
+        //     clearInterval(timer);
+        //     timer = null;
+        // };
+
+
+        // document.getElementById('inp1').onkeydown = function(ev){
+        //     console.log(ev.keyCode)//96-105  46-57  8
+        //     var i = ev.code
+        //     if( !((i>=46&&i<=57 )||(i>95&&i<106)||i==8) ){
+        //         return false
+        //     }
+        // }
+
+        // // onchange -> 当表单元素的值发生变化是，会触发该事件
+        // document.getElementById('sel1').onchange = function(){
+        //     console.log(this.value);
+        // };
+
+
+        // // onfocus -> 获得焦点
+        // document.getElementById('inp1').onfocus = function(){
+        //     // console.log(9);
+        //     if(this.value == 'please input...')
+        //         this.value = ''
+        // };
+        // // onblur -> 失去焦点
+        // document.getElementById('inp1').onblur = function(){
+        //     // console.log(7);
+        //     if(this.value == '')
+        //         this.value = 'please input...'
+        // };
+
+
+        // var obj = document.querySelectorAll('.btn')[0]
+        // // obj.onclick = function(){
+        // //     var obj2 = document.querySelectorAll('#div1')[0]
+        // //     if(obj2.style.display!='none')
+        // //         obj2.style.display = 'none'
+        // //     else
+        // //         obj2.style.display = 'block'
+        // //使用状态变量
+        // var state = 'show'
+        // var obj2 = document.querySelectorAll('#div1')[0]
+        // obj.onclick = function(ev){
+        //      // chrome , FF
+        //     // event.stopPropagation();
+        //     // IE(6-8)
+        //     // event.cancelBubble = true;
+        //     // 阻止事件冒泡的兼容处理
+        //     var oEvent = ev || window.event;
+        //     if (oEvent.stopPropagation){
+        //         oEvent.stopPropagation();
+        //     } else {
+        //         oEvent.cancelBubble = true;
+        //     }
+        //     // ev.stopPropagation();
+        //     if(state =='show'){
+        //         obj2.style.display = 'none'
+        //         state = 'hide'
+        //     }else{
+        //         obj2.style.display = 'block'
+        //         state = 'show'
+        //     }
+           
+        // }
+        // 事件流
+        // 1. 事件捕获阶段   从外往里    不会触发事件处理函数
+        // 2. 处理阶段
+        // 3. 事件冒泡阶段   从里往外    触发事件处理函数
+        // 事件冒泡机制：事件会从当前元素逐层向上传递，
+        // 如果祖先元素也有相同的事件监听，也会触发相应的事件处理函数
+        // document.onclick = function(){//不能加Body范围不够大
+        //     if(state == 'show'){
+        //         obj2.style.display = 'none'
+        //         state = 'hide'
+        //     }
+        // }
+        // document.querySelectorAll('#a1')[0].onclick = function(ev){
+        //     ev.stopPropagation()
+        //     // ev.preventDefault();
+        //     oEvent = ev||window.evevt
+        //     if (oEvent.preventDefault){
+        //         oEvent.preventDefault();
+        //     } else { // IE(6-8)
+        //         oEvent.returnValue = false
+        //     }
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style lang="">
+    .div3{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+    }
+    .div4{
+        background: green;
+    }
+</style>
+<body>
+    <!-- <div id="div1" class="div1">
+        <li>121</li>
+        <li>122</li>
+        <li class="li1">123</li>
+        <li>124</li>
+        <li>125</li>
+    </div>
+    <div id='div2'>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </div>
+    <p id="a1">123</p>
+    <p id="a2">456</p> -->
+    <div class="div3">
+    </div>
+    <button id="btn">点击改变颜色</button>
+    <script>
+        // var oDiv = document.getElementById('div1')
+        // console.log(oDiv.children)
+        // console.log(oDiv.children[oDiv.children.length - 1])
+        // // oDiv.firstChild  oDiv.firstElementChild == oDiv.children[0]     //第一个元素节点
+        // // oDiv.lastChild   oDiv.lastElementChild  == oDiv.children[oDiv.children.length - 1]   //最后一个元素节点
+
+        // var oLi3 = oDiv.children[2]
+        // console.log(oLi3.nextElementSibling)//下一个兄弟元素节点
+        // console.log(oLi3.previousElementSibling)//上一个兄弟元素节点
+
+
+        // // 获取当前节点的所有兄弟节点(元素节点)
+        // function siblings(elm){
+        //     var oDiv1 = elm.parentElement.children
+        //     var temp = []
+        //     for(var i = 0 ; i < oDiv1.length ; i++)
+        //     {if(oDiv1[i] != elm)
+        //         temp.push(oDiv1[i])}
+        //     return temp
+        // }
+        // console.log(siblings(oLi3))
+
+        // getElementsByTagName -> 根据标签名来获取后代节点，返回值也是节点列表
+        // 注意：[节点对象] 没有特殊需求不要写 document, 因为会遍历整个 dom 树, 影响性能
+        // console.log(document.getElementsByTagName('li'));
+        // console.log(document.getElementById('div2').getElementsByTagName('li'));
+        // console.log(document.body.getElementsByClassName('div1'))
+
+        // console.log(document.querySelector( '.div1 li.li1'))
+        // // querySelector -> 参数是一个选择器(css的选择器格式)，返回值是具体的节点对象  注意：如果有多个元素满足选择器的条件，那么只能返回第一个节点
+        // console.log(document.querySelectorAll('.div1 li.li1'))
+
+        // js dom 创建节点
+        // 创建节点只是在js中有了节点对象, 并没有挂载到页面上
+        // var oH3 = document.createElement('h3');
+        // console.log(oH3);
+        // oH3.innerHTML = 'mmp'
+        // document.querySelector('#div2').appendChild(oH3)
+        // // document.getElementById('div2').appendChild(oH3);
+        // // document.querySelector('#div1').removeChild(document.getElementsByClassName('li1')[0])//get id是单独一个不是集合   
+        // var obj = document.getElementsByClassName('li1')[0]
+        // obj.parentNode.removeChild(obj)
+
+        // //document.getElementById("myList").replaceChild(newnode,oldnode);
+        // document.getElementById('div1').parentNode.replaceChild(oH3,document.getElementById('div1'))  //oh3不需要引号
+
+        // // 默认情况下不克隆后代节点  如果想克隆后代节点，参数是  true
+        // var res = document.getElementById('div2').cloneNode(true);
+        // console.log(res);
+        // document.body.appendChild(res);//append和insertBefore都是对节点的移动
+        
+        // document.getElementById('div2').parentNode.insertBefore(oH3,document.getElementById('div2'))
+        // function insterAfter(newNode,oldNode){
+        //     oldNode.parentNode.insertBefore(newNode,oldNode.nextElementSibling)
+        // }
+    
+        // 练习：交换两个兄弟节点的位置
+        // function change(upperNode,lowerNode){
+        //     upperNode.parentNode.insertBefore(upperNode,lowerNode)
+        // }
+        // change(document.getElementById('a2'),document.getElementById('a1'))
+
+        // 练习：在div中插入具有100个LI标签的列表结构，LI标签中的文本是递增的
+        //     for(var i =0 ; i<100;i++){
+        //         var temp = document.createElement('li')
+        //         temp.innerHTML = i + 1
+        //         document.getElementById('div2').appendChild(temp)// 引起浏览器重绘(重新渲染)
+        //         temp = null // 释放内存
+        // }
+        // var str = ''// 2. 先拼接好 100 个li标签的字符串，再统一添加到div中
+        // for(var i = 0; i <100; i++){
+        //     str += '<li>' + (i+1) + '</li>' //不需要加<br>否则格式不对
+        // }
+        // document.getElementById('a2').innerHTML = str
+        // console.log(str)
+
+        // var oDiv = document.getElementsByClassName('div1')[0]
+        // console.log(oDiv.getAttribute('id'))
+        // oDiv.setAttribute('yyy','xxx')
+        // oDiv.setAttribute('style','color :red ; font-size :45px')
+        // //setAttribute  getAttribute removeAttribute 设置得到移除属性
+        // oDiv.className = 'div5'//打点操作  必须是系统属性，这样子才会显示在标签里  如果是自定义的会当作动态属性添加 不会显示在标签里
+
+        // var oP = document.getElementsByClassName('div3')[0].children[0];
+        // console.log(oP.offsetParent);// offsetParent -> 获取具有定位属性的父元素
+        // console.log(oP.offsetLeft);
+        // // offsetLeft -> 获取相对具有定位属性的父元素的左侧偏移(left + margin-left) 如果父元素没有定位属性，那么会逐层向上查找，直到 body 位置
+
+        // var oDiv = document.getElementsByClassName('div3')[0];
+        // // 1. 通过切换class来实现
+        // document.getElementById('btn').onclick = function(){
+        //     oDiv.className = 'div3 div4';
+        // };
+        var oDiv = document.getElementsByClassName('div3')[0];
+        // 1. 通过切换class来实现
+        document.getElementById('btn').onclick = function(){
+            // oDiv.className = 'div3 div4';
+            addClass(oDiv, 'div4');
+        };
+        function remove(obj, claname){
+            obj.className = obj.className.replace(claname,' ')
+        }
+        function addClass(obj, claname){
+           if(hasClass(obj,claname))
+                obj.className = obj.className + ' ' + claname
+            else{
+                remove(obj, claname)
+            }
+        }
+        function hasClass(obj, claname){
+            if(obj.className.indexOf(claname)>-1)
+                return false
+            else
+                return true
+        }
+
+
+        // var oDiv = document.getElementsByClassName('div3')[0];
+        // // 1. 通过切换class来实现
+        // document.getElementById('btn').onclick = function(){
+        //     // oDiv.className = 'div3 div4';
+        //     // addClass(oDiv, 'div4');
+        //     if (hasClass(oDiv, 'div4')){
+        //         // 移除 class
+        //         removeClass(oDiv, 'div4');
+        //     } else {
+        //         addClass(oDiv, 'div4');
+        //     }
+        // };
+        // function addClass(obj, claname){
+        //     if (!hasClass(obj, claname)){
+        //         obj.className = obj.className + ' ' + claname;
+        //     }
+        // }
+        // function removeClass(obj, claname){
+        //     obj.className = obj.className.replace(claname, '');
+        // }
+        // function hasClass(obj, claname){
+        //     var index = obj.className.indexOf(claname);
+        //     if (index > -1){
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+    </script>
+</body>
+</html>

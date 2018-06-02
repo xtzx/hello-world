@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        .bg{
+            width: 800px;
+            height: 800px;
+            background: gray;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            -webkit-perspective: 600px;
+            -webkit-perspective-origin: 90% 0  ;
+        }
+        .bg:hover .box{
+            -webkit-transform: rotateX(182200deg);
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            /* background: red; */
+            margin: 300px auto 0;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            
+
+            -webkit-transition: all 60s ease-in;
+            /* -webkit-transform-origin-z:  180px; */
+            /* perspective-origin: 40% 60%; */
+        }
+        .box i{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 40px;
+            font-style: normal;
+            position: absolute;
+        }
+        .box i:nth-child(1){
+            background: wheat;
+            margin-top: -100px;
+            -webkit-transform: rotateX(90deg);
+            -webkit-transform-origin: 50% 100%;
+        }
+        .box i:nth-child(2){
+            background: gold;
+        }
+        .box i:nth-child(3){
+            background: hotpink;
+            margin-left: -100px;
+            -webkit-transform: rotateY(-90deg);
+            -webkit-transform-origin: 100% 50%;
+        }
+        .box i:nth-child(4){
+            background: tomato;
+            margin-left: 100px;
+            -webkit-transform: rotateY(90deg);
+            -webkit-transform-origin: 0% 50%;
+        }
+        .box i:nth-child(5){
+            background: yellowgreen;
+            margin-top: 100px;
+            -webkit-transform: rotateX(-90deg);
+            -webkit-transform-origin: 50% 0%;
+        }
+        .box i:nth-child(6){
+            background: khaki;
+            -webkit-transform: translateZ(-100px) rotateX(-180deg);
+            -webkit-transform-origin:50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+
+        <div class="box">
+            <i>1</i>
+            <i>2</i>
+            <i>3</i>
+            <i>4</i>
+            <i>5</i>
+            <i>6</i>
+        </div>
+    </div>
+
+    <script>
+        
+    </script>
+</body>
+</html>

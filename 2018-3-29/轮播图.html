@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .slider {
+            width: 700px;
+            height: 300px;
+            margin: 20px auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn {
+            display: block;
+            width: 40px;
+            height: 70px;
+            background: rgba(0, 0, 0, .5);
+            position: absolute;
+            top: 115px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 70px;
+            color: #fff;
+            font-family: '宋体';
+            cursor: pointer;
+        }
+        .left-btn {
+            left: -50px;
+        }
+        .right-btn {
+            right: -50px;
+        }
+        .slider-dot {
+            width: 100%;
+            height: 12px;
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            text-align: center;
+        }
+        .slider-dot span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 2px;
+            background: #f0f0f0;
+            vertical-align: top;
+            border-radius: 6px;
+            cursor: pointer;
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+        }
+        .slider-dot span.selected {
+            background: #f60;
+            width: 40px;
+        }
+
+        .slider ul {
+            width: 10000px;
+            height: 100%;
+        }
+        .slider ul li {
+            width: 700px;
+            height: 100%;
+            float: left;
+        }
+        .slider ul li img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" style="padding: 10px 20px;">点击移除组件</button>
+
+    <div class="slider">
+        <!-- 大图容器 -->
+        <ul>
+            <li><img src="./img/1.jpg"></li>
+            <li><img src="./img/2.jpg"></li>
+            <li><img src="./img/3.jpg"></li>
+            <li><img src="./img/4.jpg"></li>
+        </ul>
+        <!-- 大图容器 END -->
+        <!-- 左右箭头 -->
+        <span class="btn left-btn"><</span>
+        <span class="btn right-btn">></span>
+        <!-- 左右箭头 END -->
+        <!-- 底部控制条 -->
+        <div class="slider-dot"></div>
+        <!-- 底部控制条 END -->
+    </div>
+    
+    <script src="./common.js"></script>
+    <script src="./velocity.min.js"></script>
+    <script src="./slider.js"></script>
+    <script>
+        var obj = new KG.XDD.Slider({
+            sliderWrapper: document.getElementsByClassName('slider')[0],
+            sliderArrow: document.querySelectorAll('.slider > .btn'), // 可选的
+            sliderControl: document.getElementsByClassName('slider-dot')[0], // 可选的
+            curIndex: 0,
+            evType: 'mouseover',
+            autoPlay: true,
+            callback: function(v){
+                console.log(v)
+            }
+        });
+        console.log(obj);
+        obj.install();
+
+        document.getElementById('btn').onclick = function(){
+            obj.remove();
+            console.log(obj);
+        };
+    </script>
+</body>
+</html>

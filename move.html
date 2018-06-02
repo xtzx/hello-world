@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+
+    }
+    .btn{
+        width: 180px;
+        height:80px;
+        padding-top: 2px;
+        text-align: center;
+    }
+    #div1{
+        width: 1px;
+        height: 1px;
+        left: 200px;
+        top: 300px;
+        position: absolute;
+        background: coral;
+    }
+    </style>
+</head>
+<body>
+    
+    <button class="btn">click to move</button>
+    <div id="div1"></div>
+
+    <script src="./velocity.min.js"></script>
+    <script>
+    var oDiv = document.getElementById('div1')
+    document.getElementsByClassName('btn')[0].onclick = function(){
+        Velocity(oDiv,{
+            opacity:0.5,
+            left:1200,
+            top:600,
+            width:250,
+            height:250,
+            backgroud:'black',
+            
+        },{
+            duration: 2000,
+            easing:[400,20],
+            begin:function(){
+                console.log('begin')
+            },
+            progress:function(){
+                // console.log('gogogo')
+            },
+            // visibility:'hidden',
+            // loop:3,
+            // delay:300,
+        })
+    }
+    setTimeout(function(){
+        Velocity(oDiv,{},)
+    },1500)
+    </script>
+</body>
+</html>

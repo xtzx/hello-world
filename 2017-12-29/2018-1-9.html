@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="timeSet.js"></script>
+    <script>
+        // js 的预解析
+        // 在代码逐行执行之前，会提前进行一次解析, 被解析的数据会放到浏览器缓存区(仓库)
+        // 预解析的过程
+        // 浏览器的缓存：a = ...
+        // 浏览器的缓存：空
+        // 不允许像这样来定义变量，因为 window 对象是js的顶级对象，不允许挂载过多的属性或方法
+        // a = 9; // a 已经不再是变量了，是一个属性，是 window 对象下的属性
+        // // window.a = 9;
+        // // 如果某个属性或方法是直接属于 window 对象的，那么调用的时候 window. 可以省略
+        // window.alert(9);
+        // console.log(a); // ... 
+        // // var a = 9;
+        // console.log(a);
+
+
+
+        // var n = 9;
+        // function test(){
+        //     var n = 2;
+        //     console.log(n);
+        // }
+        // test();
+        
+        // b = 9;
+        // function test(){
+        //     b = 2;
+        //     console.log(b);
+        // }
+        // test();
+
+        // var c = 9;
+        // function test(){
+        //     c = 2;
+        //     console.log(c);
+        // }
+        // test();
+
+        // var n = 9;
+        // function test(){
+        //     var n = 2;
+        //     console.log(n);
+        // }
+        // var test = 5 //or test = 5  此时全局预解析test仍然是方法 但是执行的时候变成了var类型或者是属性
+        // test(); //报错
+        
+        // var n = 0;
+        // function a(){
+        //     var n = 10;
+        //     function b(){
+        //         n++;
+        //         console.log(n);
+        //     }
+        //     b();
+        //     return b;
+        // }
+        // var c = a();       // 11
+        
+        // c();   
+        //             // 12
+        // console.log(n);    // 0
+        // b();               // 报错 无法直接调用方法体内部的子方法
+
+
+        // js 的回调函数
+        // a -> 作为函数(b)调用的实参进行传递，a 就叫回调函数
+        // function a(num){
+        //     console.log(num);
+        //     console.log('这是一个js的回调函数');
+        // }
+        // function b(callback){
+        //     // ...
+        //     var n = 9;
+        //     callback(n);
+        // }
+        // b(a);
+
+        // var a = 3.5692
+        // console.log(a.toFixed(2))//返回值是字符串
+        // console.log(a.toString())
+
+
+        // var str = 'hello world'
+        // console.log(str.length)
+        // console.log(str.charAt(5))//越界就是空
+        // console.log(str.indexOf(' '))//第一次出现位置
+        // console.log(str.lastIndexOf('l'))//最后一次出现位置 都是索引值
+        // console.log(str.slice(0,5))//含头不含尾
+        // console.log(str.substring(0))
+        // console.log(str.slice(1,-5))
+        // console.log(str.substr(0,10))
+        // console.log(str.concat('!'))
+        // console.log('a.b.c.d'.split('.'))
+        // console.log(str.replace(/l/g,'*'))
+        // console.log(str.toUpperCase())
+
+
+        // function toUpper(str,n){
+        //     if(n<=str.length && n>=0){
+        //         var str2 = str.slice(0,n)
+        //         var str3 = str.slice(n,)
+        //         return (str2.toUpperCase() + str3)
+        //     }else
+        //     alert('errro')
+        // }
+        // console.log(toUpper('aaaaaaaaa',8))
+
+
+
+        // function resver(str){//字符串反转
+        //     var str2 = ''
+        //     for(var i = str.length ; i>=0; i--){
+        //         str2 += str.charAt(i)
+        //     }
+        //     return str2
+        // }
+        // console.log(resver('abc'))
+
+
+        // console.log(Boolean(''))
+        // console.log(a.toString())
+
+        // console.log(Math.PI)
+        // console.log(Math.ceil(-3.1))//向上取整
+        // console.log(Math.floor(999.9))//向下
+        // console.log(Math.round(9.500000))//四舍五入
+        // console.log(Math.abs(-3.6));// 绝对值
+        // console.log(Math.random())// 随机数   [0, 1)
+        // console.log(Math.sqrt(16))// 开平方
+
+        // // 封装个方法(函数)，产生 a, b 之间的随机数(整数)  [a, b]
+        // function getRandom(a, b){
+        //     return Math.round(Math.random()*(b-a)+a)
+        // }
+        // console.log(getRandom(0,10))
+        // // 封装个方法(函数)，产生 a, b 之间的随机数(整数)  [a, b]
+        // function getRandom(a, b){
+        //     return Math.floor(Math.random() * (b - a + 1)) + a;
+        // }
+        
+
+        // // Date  日期对象  object
+        // var oDate = new Date();
+        // console.log(oDate.getTime())// 获取时间戳
+        // console.log(oDate.getFullYear())//年
+        // console.log(oDate.getMonth())// 注意：月份是从 0 开始计算的
+        // console.log(oDate.getDate())//日
+        // console.log(oDate.getDay())// 星期 0 表示星期日
+        // console.log(oDate.getHours())//小时
+        // console.log(oDate.getMinutes())//分钟
+        // console.log(oDate.getSeconds())//秒
+
+        // // 定时器
+        // // 间隔型的
+        // // 用法：setInterval(回调函数, 时间间隔)     以毫秒为单位
+        // // 特点：先等待再执行
+        // var i = 0;
+        // // timer -> setInterval 返回值是一个时间句柄(定时器的编号)
+        // var timer = setInterval(function(){ // 回调函数：回过头来调用
+        //     console.log(++i)
+        //     if (i == 5){
+        //         // 关闭定时器
+        //         clearInterval(timer);
+        //     }
+        // }, 1000);
+
+        // var timer2 = setTimeout(function(){
+        //     alert('f**k')
+        // },1)
+        // clearTimeout(timer2)
+
+
+        // 把 body 中的文本清空
+        // document.body.innerHTML = '';
+        // 在 body 中写入文本
+        
+        timeRun()
+        
+    </script>
+</body>
+</html>

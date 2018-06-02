@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.header{
+    background: gold;
+    width: 100%;
+}
+.nav{
+    width: 100%;
+    background: palevioletred;
+}
+.nav-div{
+    width: 100%;
+    background: pink;
+}
+.left-box{
+    float: left;
+    width: 60px;
+    background: rgba(5, 5, 5, .5);
+}
+.right-box{
+    display: none;
+}
+.left-box ul li{
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid pink;
+}
+.left-box ul li:last-child{
+    border: none;
+}
+.left-box ul li span{
+    width: 22px;
+    height: 12px;
+}
+.left-box ul li span img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.left-box ul li .comments{
+    flex: 1;
+    font-weight: normal;
+    font-size: 12px;
+}

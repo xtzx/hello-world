@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .box{
+                padding: 5px 10px;
+                width: 300px;
+            }
+        </style>
+    <script>
+        window.onload = function(){
+            console.log('last',document.getElementsByClassName('box')[0])
+        }
+    </script>
+</head>
+<body>
+        <input type="text" class="box">
+</body>
+<script>
+    var obj = document.getElementsByClassName('box')[0]
+    console.log(obj)
+    obj.addEventListener('keydown',function(ev){
+        if(!(ev.code>47 &&ev.code<58)){
+            ev.preventDefault()
+        }
+    },false)
+
+    var objimg = new Image
+    objimg.onload = function(){//不是window而是实例化的图片对象
+        console.log('加载完毕')
+        // alert('渲染时间')
+        document.body.appendChild(objimg)
+    }
+
+    
+    
+    // 等待所有的图片预加载完毕，再插入到页面
+    var imgUrlArr = [
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520485840003&di=62c981f24bca28873649e987cafeb3e0&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F8601a18b87d6277fcdb9b01d24381f30e924fc68.jpg',
+            'https://ss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=c212fdd277899e51678e3c1472a6d990/e824b899a9014c0899ee068a067b02087af4f4cc.jpg',
+            'https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=c01d6e9caa1ea8d395227204a70b30cf/43a7d933c895d1435eac3d047ff082025aaf073b.jpg'
+        ];
+    
+    // var n = 0
+    // for(var i = 0 ; i< imgUrlArr.length ; i++){
+    //     var imgi = new Image
+    //     imgi.src = imgUrlArr[i]
+    //     imgi.index = i
+    //     imgi.onload = function(){
+    //         console.log(imgi.index)
+    //     }
+    // }
+
+    // for(var i = 0;i <imgUrlArr.length;i++){
+    //     (function(i){
+    //         var imgi = new Image
+    //         imgi.onload = function(){
+    //             console.log(i)
+    //         }
+    //         imgi.src = imgUrlArr[i]
+    //     })(i)
+    // }
+
+    for(let i = 0 ; i< imgUrlArr.length ; i++){
+        var imgi = new Image
+        imgi.src = imgUrlArr[i]
+        imgi.onload = function(){
+            console.log(i)
+            
+        }
+    }//使用块级作用域
+
+// // 2. 迭代器
+//     function iterator(k){
+//             if (k == imgUrlArr.length){
+//                 console.log(9)
+//             } else {
+//                 var oImg = new Image();
+//                 // 事件处理函数的触发不是同步执行的
+//                 oImg.onload = function(){
+//                     iterator(++k)
+//                 };
+//                 oImg.src = imgUrlArr[k]
+//             }
+//         }
+//         iterator(0)
+//     imgUrlArr.onload = function(){
+//         console.log('加载完毕')
+//         document.body.appendChild(imgUrlArr)
+//     }//因为程序瞬间执行而图片需要时间所以此处代码不执行
+
+
+
+//     //懒加载
+//    document.getElementById('click').onclick = function(){
+//     var oImg = document.getElementsByTagName('img')
+//     for(var i = 0 ; i<oImg.length;i++){
+//         oImg[i].src = oImg[i].getAttribute('_src')//正确的替换错误的
+//     }
+//    }
+
+    objimg.src = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520486053219&di=e9ac675f413cc82d3732d8a2b3cbdcd7&imgtype=0&src=http%3A%2F%2Ft1.niutuku.com%2F960%2F05%2F05-67517.jpg'
+</script>
+</html>

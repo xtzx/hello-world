@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var obj = new Object()
+        obj.hasOwnProperty(name)    // 判断该属性是否是对象自身下的，如果是 返回 true   如果是在对象的原型链上的，返回false
+        console.log(obj.__proto__); // 推荐 获取对象的原型对象
+        console.log(Object.getPrototypeOf(obj));
+        // 设置对象的原型对象
+        // oTab.__proto__ = obj; // 推荐
+        // Object.setPrototypeOf(oTab, obj);
+        
+        console.log(obj instanceof Object);// 对象与构造函数在原型链上是否有关系   判断对象时候有此构造函数所构建的
+
+        function test(a,b){
+            console.log(this)
+            console.log(a,b)
+        }
+        test.call('999')//函数.call(新的this指向) 只改变指向 仍然挂载在window下
+        test.apply(9,[5,6])
+
+        var test2 = test.bind(document)// bind -> 返回一个新的函数   如果指定了默认参数，那么实参传递依次往后串
+        test2('hello','world')
+
+        // A -> 父类
+        function A(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        A.prototype = function say(){
+            console.log(this.name)
+        }
+        // B -> 子类
+        function B(name, age, sex){
+            // 属性的继承       this -> 指向未来实例化的对象
+            A.call(this,name,age)
+            //使用Apply
+            A.apply(this,arguments)
+            this.sex = sex
+        }
+        for(var attr in A.prototype){
+            B.prototype[attr] = A.prototype[attr]
+        }
+        B.prototype.__proto__ = A.prototype;// 2. 原型继承   ->  推荐
+        var oB = new B('xdd', 50, '男');
+        console.log(oB.age); // 50
+        console.log(oB)
+        oB.say()
+    </script>
+</body>
+</html>

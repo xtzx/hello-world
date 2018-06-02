@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <Script>
+        document.cookie = 'name = xdd'
+        document.cookie = 'age = 18'
+        document.cookie = 'sex = man'
+        console.log(document.cookie)
+
+        var oDate = new Date
+        oDate.setDate(oDate.getDate() +1)
+        console.log(oDate.getDate())
+
+        document.cookie = 'age=18;expires=' + oDate;
+
+
+        function setCookie(name, val, iTime){
+            if (typeof iTime == 'undefined'){ // 会话级的
+                document.cookie = name + '=' + val;
+            } else {
+                var oDate = new Date();
+                oDate.setTime(oDate.getTime() + iTime * 24 * 60 * 60 * 1000)
+                document.cookie = name + '=' + val + ';expires=' + oDate;
+            }
+        }
+        function getCookie(name){
+            var arr = document.cookie.split('; ')
+            for(var i = 0 ; i<arr.length; i++){
+                var arr2 = arr[i].split('=')
+                if(arr2[0] == name){
+                    return arr2[1]
+                }
+            }
+            
+        }
+        console.log(getCookie('age'))
+
+        function deleteCookie(name){
+            setCookie(name,'',-1)
+        }
+
+
+
+    </Script>
+</html>

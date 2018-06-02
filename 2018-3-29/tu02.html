@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .tab-top {
+            margin: 20px auto 0;
+            height: 40px;
+            width: 400px;
+        }
+        .tab-top ul li {
+            float: left;
+            line-height: 40px;
+            width: 120px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .tab-top ul li.selected {
+            background: #f60;
+            color: #fff;
+        }
+
+        .tab-box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ddd;
+            margin: 10px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-top">
+        <ul>
+            <li class="selected">卡1</li>
+            <li>卡2</li>
+            <li>卡3</li>
+        </ul>
+    </div>
+    
+    <div class="tab-box">
+        <div>内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+    </div>
+
+    <script src="./jquery-1.10.2.js"></script>
+    <script>
+        $('.tab-top').off('click').on('click','ul > li',function(){
+            $(this).addClass('selected').siblings().removeClass('selected')
+            var v = $(this).index()
+            $('.tab-box').children('div').eq(v).show().siblings().hide()
+            // var v = $(this).index();
+            // $(this).addClass('selected').siblings().removeClass('selected');
+            // $('.tab-box').children('div').eq(v).show().siblings().hide();
+
+
+        })
+    </script>
+</body>
+</html>

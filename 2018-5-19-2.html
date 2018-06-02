@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            -webkit-animation: flashname 3s .5s ease   ;
+        }
+
+        @keyframes flashname{
+            0%{
+                background: rgba(5,5,5,1);
+                -webkit-transform:translate3d(0,0,0);
+            }
+            10%{
+                background: rgba(50, 0, 50, .5);
+                -webkit-transform: translate3d(50px,50px,0);
+            }
+            100%{
+                background: rgba(100, 100, 100, .2);
+                -webkit-transform: translate3d(50px,500px,0);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        NIKE
+    </div>
+
+    <script>
+        document.querySelectorAll('.box')[0].addEventListener('animationend',function(){
+            console.log(9)
+        },false)
+    </script>
+</body>
+</html>

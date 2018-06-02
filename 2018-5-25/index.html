@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>APP Document</title>
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/fonts/Web Font/style.css">
+    <link rel="stylesheet" href="./assets/css/swiper-4.2.6.min.css">
+</head>
+<body>
+    
+    <section class="wrapper">
+        <header class="header">
+            <h4>
+                教 育 新 闻
+                <span class="lnr lnr-chevron-left ">
+                </span>
+            </h4>
+        </header>
+        <main class="main">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./assets/img/1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/img/3.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/img/4.jpg" alt=""></div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="news">
+                <ul>
+                    <a href=" ">
+                        <li>
+                            <div class="news1">
+                                <h4>----------------新闻标题----------------</h4>
+                                <h1>---2018-6-1</h1>
+                                <img src="./assets/img/2.jpg" alt="">
+                        
+                            </div>
+                        </li>
+                    </a>
+                    <a href=" ">
+                        <li>
+                            <div class="news1">
+                                <h4>----------------新闻标题----------------</h4>
+                                <h1>---2018-6-1</h1>
+                                
+                                <div class="img">
+                                    <span><img src="./assets/img/2.jpg" alt=""></span>
+                                </div>
+                            </div>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <div class="arc-list">
+                <div class="arc1">
+                    <span>
+                        <img src="./assets/img/4.jpg" alt="">
+                    </span>
+                    <strong>
+                        artical list contents
+                    </strong>
+                </div>
+            </div>
+        </main>
+        <footer class="footer"></footer>
+    </section>
+    <script src="./assets/js/swiper-4.2.6.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        })
+    </script>
+</body>
+</html>

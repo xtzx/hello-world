@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style lang="">
+    #div1{
+        padding: 10px 10px;
+        width: 200px;
+        background: grey;
+        margin: 50px  200px;
+    }
+    #div1 > li{
+        color: red;
+        background: brown;
+        width: 150px;
+        height: 50px;
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <div id="div1">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </div>
+    <button id="btn">add</button>
+
+    <script>
+    var oLi = document.querySelectorAll('#div1 li')
+    document.querySelectorAll('#btn')[0].onclick = function(){
+        var newLi = document.createElement('li')
+        newLi.innerHTML = Math.random() + ''
+        document.querySelectorAll('#div1')[0].appendChild(newLi)
+    }
+
+    
+    // for(var i = 0; i <oLi.length ; i++){
+    //     oLi[i].onclick = function(ev){
+    //         console.log(ev.target)
+    //     }
+    // }
+    document.querySelectorAll('#div1')[0].onclick = function(ev){
+        // console.log(this)
+        // console.log(ev.target)
+        if(ev.target.nodeName == 'LI'){
+            console.log(ev.target.innerHTML)
+        }
+    }
+
+    // 事件的绑定 CHROME FF
+    // document.addEventListener('click', function(){
+    //     alert(1)
+    // }, false);
+    // document.addEventListener('click',function(){
+    //     alert(2)
+    // },false)
+
+    // oDiv.attachEvent('onclick', function(){
+    //     alert(1)
+    // });//IE6-8
+
+    // function addEvent(obj){
+    //     if(obj.addEventListener)
+    //         obj.addEventListener('click', function(){
+    //             alert(1)
+    //         }, false)
+    //         else
+    //             obj.attachEvent('onclick', function(){
+    //              alert(1)})
+    // }
+
+    // addEvent(document.getElementById('div1'))
+
+    // 事件的解绑 chrome ，FF
+    // oDiv.removeEventListener('click', test);
+    // IE(6-8) 事件解绑
+    // oDiv.detachEvent('onclick', test);
+
+    </script>
+</body>
+</html>

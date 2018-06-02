@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+    <style>
+        .div1 p{
+            font-size: 2rem;
+            width: 20rem;
+            height: 20rem;
+            background: d
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <p>
+            hello world
+        </p>
+    </div>
+    <!-- em 特点：em单位的实际大小为当前元素的font-size值，
+    如果当前元素没有修正过font-size，
+    会继承祖先元素的font-size，再进行计算 
+    rem -> root em : 按照根节点(html)的font-szie去计算真实尺寸
+    -->
+</body>
+</html>

@@ -1,0 +1,272 @@
+
+/* custom reset css */
+/* .a1{
+    font-size: 100px;
+} */
+
+body{
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #3e3e3e;
+}
+a{
+    color: #3e3e3e;
+    text-decoration: none;
+}
+a:hover{
+    color: #5a8509;
+}
+/* css reset end */
+
+
+html
+{
+    overflow-x: hidden;
+}
+.w1003{
+    width: 1003px;
+    margin: 0  auto;
+}
+
+.header{
+    height: 140px;
+    background: url(../images/logo-1.jpg)  700px 30px no-repeat; 
+}
+
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+.clear{
+    clear: both;
+}
+/* 清除浮动，将div撑起来，或者添加高度以实现背景 */
+
+.header-logo{
+    margin: 21px  0  0  33px;
+}
+.nav{
+    background: #5a8509;
+    height: 40px;
+}
+.nav ul li{
+    float: left;
+    width: 167px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+}
+.sli li{
+    float: left;
+    /* position: absolute; */
+    width: 167px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #2d7600;    
+}
+.sli a{
+    display: block;
+    font-size: 14px;
+    color: #ffffff;
+}
+.nav ul li > a{
+    display: block;
+    font-size: 14px;
+    color: #ffffff;
+}
+.nav ul li > a:hover{
+    background: #93d813;
+    /* /注意是背景颜色 */
+}
+.nav ul li > dl{
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+.colored{
+    background: #93d813;
+}
+.nav ul li > dl dd{
+    margin-top: 2px;
+    height: 30px;
+    background: rgba(45,118,0,.8);
+    font-size: 14px;
+}
+.nav ul li > dl dd a{
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+}
+.slider{
+    /* text-align: center; */
+    height: 330px;
+    position: relative;
+}
+.slider img{
+    position: absolute;
+    left: 50%;
+    margin-left: -720PX;
+}
+.main{
+ 
+}
+.news{
+    width: 704px;
+    height: 275px;
+    border: 1px solid #dbdbdb;
+    margin-top: 12px;
+}
+.news-left{
+    width: 320px;
+    height: 240px;
+    margin: 18px 0 0 18px;
+}
+.news-right{
+    width: 330px;
+    margin: 18px 18px 0 0;
+}
+.news-top{
+    height: 24px;
+    border-bottom: 1px solid #dbdbdb;
+}
+.news-top p{
+    color: #252525;
+    font-size: 16px;
+    border-bottom: 4px solid #2d7600;
+    float: left;
+    height: 24px;
+    /* 27+1-4 */
+
+    padding: 0 16px 0 6px;
+    /* important  使用内部字体撑起来p标签 表示左右距离*/
+    /* <!-- 定位用于动画，尽量少用 --> */
+    line-height: 16px;
+}
+.news-top span{
+    font-family:"Arial" ;
+    font-size: 12px;
+    font-weight: bold;
+    line-height:20px ;
+    color: #adadad;
+    float: left;
+}
+.news-top a{
+    float: right;
+}
+.news-list ul li{
+    border-bottom: 1px dotted #a9adb3;
+    padding: 6px 0;
+}
+.news-list ul li h4,h5{
+    line-height: 20px;
+    padding-left: 10px;
+}
+.news-list ul li h4{
+    background: url(../images/icon-01.jpg) no-repeat 0 center;
+
+}
+.news-list ul li h4 span {
+    display: inline-block;
+    /* !!! 行内块元素 支持width 和height 不会独占一行*/
+    width: 25px;
+    height: 9px;
+    background: url(../images/icon-02.jpg) no-repeat;
+    margin-left: 6px;
+
+}
+
+.notice{
+    width: 282px;
+    height: 275px;
+    margin-top: 12px;
+    border: 1px solid #dbdbdb;
+}
+.notice-top{
+    height: 39px;
+    border-bottom: 1px solid #dbdbdb ;
+    margin-left: 6px;
+}
+.notice-top p{
+    color: #252525;
+    font-size: 16px;
+    border-bottom: 4px solid #2d7600;
+    float: left;
+    height: 36px;
+    padding: 0  6px;
+    line-height: 38px;}
+    
+.notice-top a{
+    font-family:"Arial" ;
+    font-size: 13px;
+    font-weight: bold;
+    line-height:38px ;
+    color: #adadad;
+    float: RIGHT;
+    margin-right: 6px;
+}
+.notice-list {
+    padding: 0px 15px 0 15px;
+}
+.notice-list ul li{
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px dotted #a9adb3;
+    background: url(../images/icon-01.jpg) no-repeat left center;
+    padding-left: 8px;
+}
+.hydt{
+    margin-top: 16px;
+    width: 345px;
+    height: 275px;
+    border: 1px solid #adadad;
+}
+.hydt-top{
+    height: 44px;
+    border-bottom: 1px solid #adadad;
+    /* 注意边框重复颜色变深了！！！ */
+    background: #ebf2dd;
+}
+.hydt-top p{
+    color: #252525;
+    font-size: 16px;
+    border-bottom: 4px solid #2d7600;
+    float: left;
+    height: 41px;
+    padding: 0  6px;
+    line-height: 44px;
+}
+.hydt-top a{
+    font-family:"Arial" ;
+    font-size: 13px;
+    font-weight: bold;
+    line-height:44px ;
+    color: #adadad;
+    float: RIGHT;
+    margin-right: 6px;
+}
+.hydt-list ul li span{
+    float: right;
+    color: #2d7600;
+}
+.xxx{
+    margin-left : 10px;
+
+}
+.ttt{
+    width: 120px;
+    
+}
+.tt{
+    background: url(../images/pro.jpg) no-repeat 150px 72px;
+}
+.ad-box{
+    margin-top: 12px;
+}

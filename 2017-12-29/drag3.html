@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .line{
+
+    }
+</style><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .div1,.div2{
+        width: 10px;
+        height: 20px;
+        background: gray;
+        position: absolute;
+        top:-9px;
+    }
+    .div2{
+        left: 320px;
+        top: 320px;
+        background: black;
+    }
+    .baba{
+        width: 600px;
+        height: 2px;
+        background: #f0f0f0;
+        position: relative;
+        margin: 50px auto 0;
+    }
+    .num{
+        margin-left: 500px ;
+
+    }
+</style>
+<body>
+    <div class="baba">
+        <div class="div1"></div>
+    </div>
+    <p class='num'>0</p>
+    <!-- <div class="div2">ZhouMing</div> -->
+
+    <script>
+        var obj1 = document.querySelectorAll('.div1')[0]
+        var i = 0
+       drag(obj1)
+
+        function drag(obj){
+            obj.onmousedown = function(ev){
+            var _this = this//便于维护代码
+            var disX = ev.clientX - this.offsetLeft//在外围获得边距
+            var disY = ev.clientY - this.offsetTop
+            
+            obj.style.zIndex = ++i
+            document.onmousemove = function(ev){
+                var l = ev.clientX - disX
+                var f = ev.clientY - disY
+
+                //边框限制分别对应左上右下
+                if(l<0)
+                l=0
+                if(f<0)
+                f=0
+                // if( l > (screen.width-100) )
+                //      l=(screen.width-100)
+                // if( f > (screen.height-100) )
+                //      l=(screen.height-100)
+                if( l > window.innerWidth - _this.offsetWidth)
+                    l =  window.innerWidth - _this.offsetWidth
+                if( f > window.innerHeight - _this.offsetHeight)
+                    f = window.innerHeight - _this.offsetHeight
+
+                //第二版本 磁性吸附  当靠近边框50px时自动吸附
+                if(l<0){
+                    l = 0
+                }
+                if(f<0){
+                    f = 0
+                }
+                if( l > _this.parentNode.clientWidth - _this.offsetWidth )
+                    l = _this.parentNode.clientWidth - _this.offsetWidth
+                if( f > _this.parentNode.clientHeight - _this.offsetHeight)
+                    f = _this.parentNode.clientHeight - _this.offsetHeight
+                    _this.style.left = l + 'px'
+                    // _this.style.top = f + 'px'
+                // obj.preventDefault();
+                // return false
+                var obj2 = document.querySelectorAll('.num')[0]
+                obj2.innerHTML = l/(_this.parentNode.clientWidth - _this.offsetWidth )
+            }
+            document.onmouseup = function(){
+                this.onmousemove = null
+                this.onmouseeup = null
+            }
+            return false
+        }
+        }
+
+
+
+        // // 核心的拖摘算法
+        // oDiv.onmousedown = function(ev){
+        //     var disX = ev.clientX - this.offsetLeft;
+        //     var disY = ev.clientY - this.offsetTop;
+        //     // 动态添加 onmousemove
+        //     document.onmousemove = function(ev){
+        //         var l = ev.clientX - disX;
+        //         var t = ev.clientY - disY;
+        //         oDiv.style.left = l + 'px';
+        //         oDiv.style.top = t + 'px';
+        //     };
+        //     // 动态添加 onmouseup
+        //     document.onmouseup = function(){
+        //         this.onmousemove = null;
+        //         this.onmouseup = null;
+        //     };
+        //     // 解决一些诡异的bug
+        //     return false;
+        // };
+    </script>
+</body>
+</html>
+<body>
+    <div class="line">
+        <div class="dot"></div>
+    </div>
+    
+</body>
+</html>

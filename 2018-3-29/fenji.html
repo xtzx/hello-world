@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {margin:0px;padding:0;}
+			li {list-style:none;}
+			a, a:hover {text-decoration:none;color:#333;}
+			body {font:14px '微软雅黑';color:#333;}
+			
+			.div1 {width:200px;margin:20px 0 0 20px;border:1px solid #ddd;border-bottom:none;}
+			.div1 ul li {}
+			.div1 ul li h5 {height:32px;border-bottom:1px solid #ddd;}
+			.div1 ul li h5 a {display:block;height:32px;line-height:32px;padding-left:10px;}
+			.div1 ul li h5 a:hover, .div1 ul li h5.selected a {color:#ff0000;}
+			.div1 ul li dl {border-bottom:1px solid #ddd;overflow:hidden;display:none;}
+			.div1 ul li dl dd {height:30px;}
+			.div1 ul li dl dd a {display:block;height:30px;line-height:30px;padding-left:20px;font-size:12px;}
+			.div1 ul li dl dd a:hover {color:#FF6600;}
+		</style>
+	</head>
+	<body>
+		<div class="div1" id="nav">
+			<ul>
+				<li>
+					<h5><a href="#">一级分类1</a></h5>
+					<dl>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<h5><a href="#">一级分类2</a></h5>
+					<dl>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<h5><a href="#">一级分类3</a></h5>
+					<dl>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+						<dd>
+							<a href="#">二级分类1</a>
+						</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+        
+        <script src="../jquery-1.10.2.js"></script>
+		<script>
+			$('#nav').off('click').on('click','ul>li>h5',function(){
+                var $this = $(this)
+                if($this.hasClass('selected')){
+                    $this.removeClass('selected').next().slideUp(200)
+                }else{
+                    $this.addClass('selected').next().slideDown(200)
+                }
+                // $this.find('dl').end()
+                $this.parent().siblings().children('h5').removeClass('selected').end().children('dl').slideUp(200)
+            })
+		</script>
+	</body>
+</html>

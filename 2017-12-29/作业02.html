@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .tab-top {
+            width: 400px;
+            height: 40px;
+            margin: 20px auto 10px;
+        }
+        .tab-top li {
+            float: left;
+            list-style: none;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .tab-top li.selected {
+            background: #f60;
+            color: #fff;
+        }
+        .tab-wrapper {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ddd;
+            margin: 0 auto;
+        }
+        .tab-wrapper .box {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-top">
+        <li class="selected">卡1</li>
+        <li>卡2</li>
+        <li>卡3</li>
+    </div>
+    <div class="tab-wrapper">
+        <div class="box" style="display: block;">内容1</div>
+        <div class="box">内容2</div>
+        <div class="box">内容3</div>
+    </div>
+    <script src="tab.js"></script>
+    <script>
+
+        tab({
+            aLiList : document.querySelectorAll('.tab-top > .li'),
+            aDivList : document.querySelectorAll('.tab-wrapper > .box'),
+            evType : 'onmouseover',
+            curIndex:0,
+            callback(){}
+        })
+
+        // var aLiList = document.getElementsByClassName('tab-top')[0].children
+        // var aDivList = document.getElementsByClassName('tab-wrapper')[0].children
+
+        // function cutTagLi(index){
+        //     for(var j =0 ; j<aLiList.length;j++){
+        //         aLiList[j].style.className = ''
+        //     }
+        //     aList[index].style.className = 'selected'
+        // }
+
+        // function cutTagDiv(index){
+        //     for(var l = 0;l <aDivList.length;l++){
+        //         aDivList[l].style.display = 'none'
+        //     }
+        //     aDivList[index].style.display = 'block'
+        // }
+
+        // for(var i = 0 ; i < aLiList.length;i++){
+        //     aLiList[i].index = i
+        //     aLiList.onclick = function(){
+        //         var k = this.index
+        //         cutTagLi(k)
+        //         cutTagDiv(k)
+        //     }
+        // }
+
+    </script>
+</body>
+</html>

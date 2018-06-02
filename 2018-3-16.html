@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+    //    // 正则表达式
+    //     // 规则、模式
+    //     // 字符串匹配的强大工具
+    //     // 特点：贪婪匹配，只要字符串满足规则，正则会进最大可能去匹配
+    //     // 应用场景
+    //     // 表单合法性校验
+    //     // 字符串匹配，匹配之后干什么...
+    //     // 正则的创建
+    //     // 1. 显示创建 -> 实例化正则对象
+    //     var oReg = new RegExp('a');
+    //     // 2. 隐式创建 -> 推荐使用，因为写起来简单
+    //     var oReg2 = /abc/;
+    //     console.log(oReg)
+    //     console.log(oReg2)
+    
+    
+    
+    // var oReg3 = /\d/
+    // var str = 'asd123asd'
+    // console.log(str.match(oReg3))
+    // g -> 参数，表示全局(部)匹配
+    // 如果没有参数 g，正则的匹配原则是：只要是匹配上一次，那么就会停止匹配
+    // \d -> 匹配数字 0-9  i表示不区分大小写  /[0-9 ]+/匹配数字加空格   ?如果加g会出现空数组 *表示0到多个，不推介使用  ^表示开头$表示结尾 没有则输出Null  
+    // \b表示单词边界 输出空字符串    \表示转义
+    // 需求：ABBA   1223   5775
+    // () -> 表示捕获     \n -> 反向引用，引用的是小括号中的捕获
+    // var oNewReg = /(\d)(\d)\2\1/g;
+    // var str = 'abc4554def2442';
+    var oReg6 = /(\d)(\d)\2\1/g
+    var str = '4556adasd5665asdasd8998'
+    console.log(str.match(oReg6))
+    console.log(str.replace(oReg6,'****'))//有返回值，字符串本身没有改变  search方法返回第一次出现的索引值
+    var oNewReg = /[0-9a-zA-Z]{3}/g;
+    var oReg5 = /(0\d{2,3}-)?/g
+    var str = '024-abc97d123ef0';
+    console.log(str.match(oReg5))
+    var res = str.match(oNewReg);
+    console.log(res)
+    var oReg4 = /d/gi
+    console.log(str.match(oReg4))
+
+    </script>
+</body>
+</html>

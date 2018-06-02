@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // var obj = new Object()//大写Object
+        // obj.name = 'xdd'
+        // obj.say = function(){
+        //     alert(this.name)
+        // }
+        // obj.say()
+
+
+        // function stuMake(name,age){
+        //     var obj = new Object()
+        //     obj.name = name
+        //     obj.age = age
+        //     return obj
+        // }
+        // var stu1 = stuMake('xdd',15)
+        // var stu2 = stuMake('xiaojue',20)
+        // console.log(stu1)
+        // console.log(stu2)
+
+
+        // // Person -> 构造函数(类)  通常首字母大写
+        // function Person(name){
+        //     // this -> 指向未来实例化的对象
+        //     this.name = name;
+        //     this.say = function(){
+        //         // this -> 谁调用指向谁
+        //         console.log(this.name)
+        //     };
+        // }
+        // // 实例化对象
+        // var per1 = new Person('xdd');
+        // per1.say();
+        // function Person(name,age){
+        //     this.name = name
+        //     this.age = age
+        //     this.say = function(){
+        //         console.log(this)
+        //     }
+        // }
+        // Person.prototype.speak = function(){
+        //     console.log(this.name+'   by prototype')
+        // }
+        // var peo1 = new Person('xdd',15)
+        // peo1.say()
+        // peo1.speak()
+
+        // // test 函数 本质上也是方法，它是属于window对象下的方法
+        // function test(){
+        //     console.log(this); // window
+        // }
+        // test();  // window.test();
+        // // 如果 属性或方法 是属于window 对象的，那么在调用的时候，window. 可以省略
+        // window.alert(9);
+
+
+    //     // 混合方式 -> 工厂模式 + 原型对象
+    //     // 简单的原则：属性写在构造函数中，方法添加到原型上
+    //     function Person(name){
+    //         // this -> 指向未来实例化的对象
+    //         this.name = name;
+    //         this.say = function(){
+    //             // this -> 谁调用指向谁
+    //             console.log(this.name)
+    //         };
+    //     }
+    //     // 原型对象 -> prototype -> 属于构造函数
+    //     Person.prototype.speek = function(){
+    //         console.log('====' + this.name);
+    //     };
+    //     // prototype 总结
+    //     // 1. 不是我们动态添加的，是系统默认分配
+    //     // 2. js 会默认给每一个函数分类一个属性(prototype)，它的本质是一个对象
+    //     // 3. 原型对象上动态添加的方法，之后所有实例化的对象都能共享
+    //     // 4. 让公用的方法或属性在内存中存在一份，进而提高性能
+
+
+            // // 构造函数的指向出问题了
+            // Student.prototype = {
+            // constructor: Student, // 手动的去修正构造函数的指针
+            // say1: function(){
+            //     console.log(this.name);
+            // },
+            // say2: function(){
+
+            //     }
+            // };
+
+    //     OOP 三段式
+        // 1. 构造函数
+        // var Student = function(name, age){
+        //     // 属性在构造函数中处理
+        //     this.name = name;
+        //     this.age = age;
+        // };
+        // // 2. 原型对象 -> 方法挂载到原型上
+        // Student.prototype.say = function(){
+        // };
+        // // 3. 实例化对象
+        // var oStu1 = new Student('xdd', 50);
+        // console.log(oStu1)
+    </script>
+</body>
+</html>

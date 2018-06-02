@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .div1,.div2{
+        width: 100px;
+        height: 100px;
+        background: gray;
+        position: absolute;
+        left:300px;
+        top:300px;
+    }
+    .div2{
+        left: 320px;
+        top: 320px;
+        background: black;
+    }
+</style>
+<body>
+    <div class="div1">ZhouMing</div>
+    <div class="div2">ZhouMing</div>
+
+    <script>
+        var obj1 = document.querySelectorAll('.div1')[0]
+        var obj2 = document.querySelectorAll('.div2')[0]
+        var i = 0
+       drag(obj1)
+       drag(obj2)
+
+        function drag(obj){
+            obj.onmousedown = function(ev){
+            var _this = this//便于维护代码
+            var disX = ev.clientX - this.offsetLeft//在外围获得边距
+            var disY = ev.clientY - this.offsetTop
+            
+            obj.style.zIndex = ++i
+            document.onmousemove = function(ev){
+                var l = ev.clientX - disX
+                var f = ev.clientY - disY
+
+                //边框限制分别对应左上右下
+                if(l<0)
+                l=0
+                if(f<0)
+                f=0
+                // if( l > (screen.width-100) )
+                //      l=(screen.width-100)
+                // if( f > (screen.height-100) )
+                //      l=(screen.height-100)
+                if( l > window.innerWidth - _this.offsetWidth)
+                    l =  window.innerWidth - _this.offsetWidth
+                if( f > window.innerHeight - _this.offsetHeight)
+                    f = window.innerHeight - _this.offsetHeight
+
+                //第二版本 磁性吸附  当靠近边框50px时自动吸附
+                if(l<50){
+                    l = 0
+                }
+                if(f<50){
+                    f = 0
+                }
+                if( l > window.innerWidth - _this.offsetWidth -50)
+                    l =  window.innerWidth - _this.offsetWidth
+                if( f > window.innerHeight - _this.offsetHeight - 50)
+                    f = window.innerHeight - _this.offsetHeight
+                    _this.style.left = l + 'px'
+                    _this.style.top = f + 'px'
+                // obj.preventDefault();
+                // return false
+            }
+            document.onmouseup = function(){
+                this.onmousemove = null
+                this.onmouseeup = null
+            }
+            return false
+        }
+        }
+
+
+
+        // // 核心的拖摘算法
+        // oDiv.onmousedown = function(ev){
+        //     var disX = ev.clientX - this.offsetLeft;
+        //     var disY = ev.clientY - this.offsetTop;
+        //     // 动态添加 onmousemove
+        //     document.onmousemove = function(ev){
+        //         var l = ev.clientX - disX;
+        //         var t = ev.clientY - disY;
+        //         oDiv.style.left = l + 'px';
+        //         oDiv.style.top = t + 'px';
+        //     };
+        //     // 动态添加 onmouseup
+        //     document.onmouseup = function(){
+        //         this.onmousemove = null;
+        //         this.onmouseup = null;
+        //     };
+        //     // 解决一些诡异的bug
+        //     return false;
+        // };
+    </script>
+</body>
+</html>

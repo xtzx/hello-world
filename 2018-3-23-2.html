@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        list-style: none;
+        }
+    .box{
+        width: 700px;
+        height: 300px;
+        position: relative;
+        margin: 30px auto 0;
+        /* background: pink; */
+        overflow: hidden;
+    }
+    .btn{
+        display: block;
+        width: 20px;
+        height: 70px;
+        position: absolute;
+        background: rgba(0,0,0,.5);
+        line-height: 70px;
+        text-align: center;
+        font-family: '宋体';
+        font-size: 30px;
+        color: #fff;
+        cursor: pointer;
+        top:115px;
+    }
+    .left-btn{
+       left: 0;
+    }
+    .right-btn{
+        right: 0;
+    }
+    .botton{
+        width: 100%;
+        height: 12px;
+        position: absolute;
+        left: 0;
+        bottom: 10px;
+        /* background: peachpuff; */
+        text-align: center;
+    }
+    .botton span{
+        margin: 0 12px;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: blueviolet;
+        vertical-align: top;
+        border-radius: 6px;
+        cursor: pointer;
+        -webkit-transition: all .3s ease;
+    }
+    .botton span.selected{
+        background: aquamarine;
+        width:40px;
+    }
+    .box ul{
+        width: 10000px;
+        height: 300px;
+
+    }
+    .box ul li{
+        width: 700px;
+        height: 100%;
+        /* background: aqua; */
+        float: left;
+    }
+    .box ul li img{
+        width: 100%;
+        height: 100%;
+    }
+    .btn2{
+        width: 200px;
+        height: 38px;
+        /* left: 30px;
+        top: 30px; */
+        text-align: center;
+        line-height: 38px;
+        margin-left: 30px;
+        margin-top: 30px;
+    }
+    </style>
+</head>
+<body>
+    <button class="btn2">
+        点击移除
+    </button>
+    <div class="box">
+        <ul>
+            <li><img src="./img/1.jpg" alt=""></li>
+            <li><img src="./img/2.jpg" alt=""></li>
+            <li><img src="./img/3.jpg" alt=""></li>
+            <li><img src="./img/4.jpg" alt=""></li>
+        </ul>
+        <span class="btn left-btn"><</span>
+        <span class="btn right-btn">></span>
+        <div class="botton">
+           
+        </div>
+    </div>
+    
+    <script src="./common.js"></script>
+    <script src="./velocity.min.js"></script>
+    <script src="./slider.js"></script>
+    <script>
+        var oZM = new KG.ZM.Slider({
+            sliderWrapper: document.getElementsByClassName('box')[0],
+            sliderArrow: document.querySelectorAll('.box > .btn'), // 可选的
+            sliderControl: document.getElementsByClassName('botton')[0], // 可选的
+            curIndex: 0,
+            autoPlay:true,
+            evType: 'mouseover',
+            callback: function(v){
+                console.log(v)
+            },
+        })
+        oZM.install()
+    </script>
+</body>
+</html>

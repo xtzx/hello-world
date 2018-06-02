@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = "safef"
+    var b = 'a'
+    console.log(a)
+    // alert(a)
+    console.log(typeof a)//string
+
+
+    var c;
+    console.log(typeof c)//underfine
+
+    var num = 100.4;
+    console.log(parseInt(num))//100
+
+    console.log(parseFloat('3.25165ppp'))//3.25165
+
+    var str2 = 233
+    console.log(str2+'')//233
+    console.log(str2.toString())//233
+    console.log('hello' + ' world')
+
+    var a = 100;
+    var b = '100';
+    console.log(Number('100px'))//NaN
+    console.log(a == b)//true
+    console.log(a === b)//false
+
+    console.log(1&&0&&NaN)//0
+    console.log(false||0||NaN||''||undefined||null||1)//1
+
+    console.log(NaN == NaN)//false
+    console.log(null == undefined)//true
+
+
+    a = a++;
+    console.log(a)//100
+    // console.log(5++)
+
+    //分数转换   <60  E   60-70 D  70-80 C  80-90 B  90 - 100 A
+    // var score = prompt('请输入分数!');
+    // console.log(score)
+    // if(score>90&&score<101){
+    //     alert("A")
+    // }else{
+    //     if(score>80&&score<91){
+    //     alert("B")
+    // }else{
+    //     if(score>70&&score<81){
+    //     alert("C")
+    // }else{}
+    // if(score>60&&score<71){
+    //     alert("D")
+    // }else{
+    //     if(score>0&score<61){
+    //     alert("E")
+    // }else{
+    //     alert("请重新输入")
+    // }
+    // }
+    // }
+    // }
+
+    // var length = prompt("请输入周长")
+    // if(length>0)
+    //     {
+    //          alert("正方形" + (length/4)*(length/4))
+    //          alert("圆形" + (length/6.28)*(length/6.28)*3.14)
+    //         if( (length/4)*(length/4) > (length/6.28)*(length/6.28)*3.14 )
+    //             alert("正方形大")
+    //          else
+    //             alert("圆形大")}
+    //  else
+    //     alert("error")
+
+    
+// function test(a,b){
+//     //没有返回值，形参实参可以不对等
+//     alert(a + b)
+// }
+//    test(a,b);//100100
+//    test(100,100)
+//    test('hello',' world')
+
+//    var test02 = function(){
+//        alert('函数声明自执行，只有匿名可以')
+//    }()
+
+
+
+// 全局变量的问题: 
+// 1. 多人协作开发会造成全局变量污染   
+// 2. 失效的变量不会被销毁，会一直驻扎在内存中
+// A           ( function(){  } )  ()
+;(function(){
+    var pageNumber = 10;
+    // ...
+})()
+
+// B
+;(function(){
+    var pageNumber = 15;
+    // ...
+})();
+
+~function(){}()
+// 最好不要定义全局变量: 结局方案 -> 匿名函数自执行
+// 好处
+// - 封闭作用域，把原本的全局作用域包装成局部作用域
+// - 避免了全局变量的污染
+// - 失效的变量会被销毁，会一直驻扎在内存中
+// - 提升js引擎的执行效率
+ 
+// 封装组件  -> 入口方法
+
+var tab =  (function(){
+    // ...
+    function install(){
+        console.log('tab')
+    }
+    return install
+    //注意是方法名不是调用方法
+})();
+
+tab()
+
+
+function factorial(i){
+    if(i == 1){
+        return 1
+    }
+    else{
+        return i*factorial(i-1)
+    }
+}
+
+alert(factorial(5))
+
+</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        list-style: none;
+    }
+    div{
+        height: 400px;
+        width: 300px;
+        margin: 100px  auto;
+        padding: 50px 50px;
+        border: 1px  solid  #aaaa;
+        background: goldenrod;
+    }
+    div ul li{
+        margin-top: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>账号<input type="text" id="name"></li>
+            <li>密码<input type="text" id="psw"></li>
+            <label ><li><input type="checkbox">七天免登陆</li></label>
+            <li><button>登陆</button></li>
+        </ul>
+        
+    </div>
+
+    <script src="./2018-3-11-cookie.js"></script>
+    <script>
+        var oUser = document.querySelectorAll('#name')[0]
+        var oPsw = document.querySelectorAll('#psw')[0]
+        document.getElementsByTagName('button')[0].onclick = function(){
+            if(oUser.value == 'xdd'&& oPsw.value == '123'){
+                console.log('yes')
+                setCookie('username','xdd',365)
+                setCookie('psw','123',365)
+            }else{
+                console.log('no')
+                setCookie('username',oUser.value,365)
+            }
+        }
+    </script>
+</body>
+</html>

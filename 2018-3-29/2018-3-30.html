@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div1">
+    <ul>
+        <!-- <div> -->
+                <li>1</li>
+                <li class="a">2</li>
+        <!-- </div> -->
+        <input type="text" name="user" class="inp">
+    </ul>
+    
+    </div>
+    <input type="checkbox" name="hobby" id="" checked>socket
+    <script src="./jquery-1.10.2.js"></script>
+    <script>
+        console.log($('.div1 ul li'))
+        console.log($('.div1 ,li'))
+        console.log($('.div1 ul').children('.a'))
+        console.log($('.div1')[0])
+        $('.div1').css({
+            width:200,
+            height:200,
+            backgroud:'red',
+
+        })
+        console.log($('.div1').offset().left)
+        // $('.div1').on('click.zm',function(){
+        //     console.log('zm')
+        // })
+        // $('.div1').on('click.dd',function(){
+        //     console.log('dd')
+        // })
+        // $('.div1').off('click')
+        $(document).off('click.xx').on('click.xx','.div1',function(){
+            console.log(this)//注意docum不用加引号，先off后on更加合理
+            $('.div1').addClass('aaa')
+            $('.div1').attr({
+                id:'id',
+                backgroud:'red'
+            })
+            $('.div1').removeClass('aaa')
+        })
+        $('.inp[name="user"]').val('hello')
+        console.log($('input[name="hobby"]').prop('checked'))
+        $('.div1').append('<p>world</p>')
+        var res = $(".div1").clone(true)
+        $('.div1').append(res)
+    </script>
+</body>
+</html>

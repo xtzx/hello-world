@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        .box{
+            margin: 50px auto 0;
+            width: 400px;
+            height: 100px;
+            border: 1px solid gold;
+            display: flex;
+            flex-direction: row;
+            /* justify-content:  */
+            /* background: -webkit-linear-gradient(top,red 0% , black 100%); */
+            /* background: -moz-linear-gradient(left, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); 
+            background: -webkit-linear-gradient(left, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
+            background: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 );  */
+        }
+        .box p{
+            float: left;
+            box-sizing: border-box;
+            width: 100px;
+            /* flex: 5; */
+            height: 100%;
+            border-right: 1px solid gold;
+            background: fuchsia;
+        }
+        .box p:last-child{
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>1</p>
+        <p>2</p>
+    </div>
+</body>
+</html>

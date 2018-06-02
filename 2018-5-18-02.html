@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            -webkit-transition: all 1.6s .1s cubic-bezier(.56,-0.27,.49,1.38);
+        }
+        .div{
+            background: palegreen;
+            margin: 20px 50px;
+        }
+        .box:hover{
+            background: palegreen;
+            margin: 20px 50px;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">
+        click
+    </button>
+    <div class="box">
+
+    </div>
+    <script>
+        document.querySelectorAll('.btn')[0].onclick = function(){
+            document.querySelectorAll('.box')[0].classList.add('div')
+        }
+
+    </script>
+</body>
+</html>

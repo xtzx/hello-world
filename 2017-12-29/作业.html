@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .div3 {
+            width: 600px;
+            height: 400px;
+            margin: 100px auto 0;
+        }
+        .div3 li {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            color: #fff;
+            float: left;
+            list-style: none;
+        }
+        .div3 li:nth-of-type(2n+1) {
+            background: yellow;
+        }
+        .div3 li:nth-of-type(2n) {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点击节点排序</button>
+
+    <div class="div3">
+        <li>4</li>
+        <li>2</li>
+        <li>3</li>
+        <li>6</li>
+        <li>5</li>
+        <li>1</li>
+    </div>
+
+    <script>
+        // js 元素样式的操作
+        
+        var list = document.getElementsByClassName('div3')[0]
+        console.log(list)
+        // console.log(oDiv[1].innerHTML)
+        // alert(oDiv[1].innerHTML)
+        document.getElementById('btn').onclick = function(){
+            // alert(oDiv[1].innerHTML)
+            // for(var i = 0; i <oDiv.length; i++){
+            //     for( var j = i+1 ; j <oDiv.length; j++){
+            //         if(oDiv[i].innerHTML>oDiv[j].innerHTML){
+            //             // var temp = oDiv[j].cloneNode(true)
+            //             // oDiv[j].parentNode.replaceChild(oDiv[i],oDiv[j])
+            //             // oDiv[i].parentNode.replaceChild(temp,oDiv[i])
+            //             // console.log(temp)
+            //             var temp = oDiv[j].innerHTML
+            //             oDiv[j].innerHTML= oDiv[i].innerHTML
+            //             oDiv[i].innerHTML=oDiv[i].innerHTML
+                        
+            //         }
+            //         else{
+            //         }
+            //     }
+            // }
+            var oDiv = document.getElementsByTagName('li')
+        console.log(oDiv)
+            var l = oDiv.length
+            var arr = []
+            for(var i=0 ; i <l ; i++){//集合转数组
+                arr[i] = oDiv[i]//比arr.push(oDiv[i])性能好，因为后者需要调用函数
+            }
+            
+            
+            arr.sort(function(a,b){
+                return parseInt(a.innerHTML) - parseInt(b.innerHTML)
+            });
+            console.log(arr)
+            // for(var i = 0 ; i<l;i++){
+            //     list.appendChild(arr[i])
+            // }
+            
+        };
+    </script>
+</body>
+</html>

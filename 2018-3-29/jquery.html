@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="div1">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <script src="./jquery-1.10.2.js"></script>
+    <script>
+        // 什么是jQuery
+        // 一个优秀的JS库，提供了我们开发中常用到的操作，
+        // 解决原生js遇到的一些问题（兼容性、繁琐等），并且拥有统一的入口，
+        // 简化我们的操作，让我们更专注于业务！
+        
+        // jQuery的好处
+        // - 简化JS的复杂操作
+        // - 不再需要关心兼容性
+        // - 提供大量实用方法
+
+        // jQuery 的思想
+        // 方法函数化
+        // 模拟CSS选择元素
+        // 链式操作
+        // 取值赋值合体
+        // 与原生js可以共存
+        // write less，do more
+
+        // jQuery 的缺点
+        // 1. 代码量太大，导致文件本身过大，加载会慢一些
+        // 2. 封装的方法太多，很多时候都用不到
+        // 3. 底层封装太到位，语法比较灵活，导致代码风格和质量不好把控
+        // 4. 比较锋利的库
+
+        // JQ对象
+        // - 把原生js对象通过JSON的形式，包装成了JQ对象，本质是JSON对象
+        // - 所有JQ下的方法都挂载在其JQ的原型对象上，所以我们才能够使用
+        // - JQ对象有一个length属性，因此我们遍历JQ对象就像遍历数组一样，但JQ对象本质上不是数组
+        // - JQ对象可以像数组一样通过下标访问，其结果是原生js对象
+
+        console.log($('#div1')[0]);
+        console.log(document.getElementById('div1'));
+
+        console.log($('#div1 ul li'));
+        console.log(document.querySelectorAll('#div1 ul li'));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .box1{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: absolute;
+    }
+    .box2{
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        margin-left: 500px;
+        margin-top: 200px;
+        position: absolute;
+    }
+</style>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+<script>
+    var obj1 = document.getElementsByClassName('box1')[0]
+    var obj2 = document.getElementsByClassName('box2')[0]
+    document.addEventListener('keydown',function(ev){
+
+        
+        switch(ev.keyCode){
+            case 38:obj1.style.top = obj1.offsetTop - 10 + 'px'
+            break;
+            case 40:obj1.style.top = obj1.offsetTop + 10 + 'px'
+            break;
+            case 37:obj1.style.left = obj1.offsetLeft - 10 + 'px'
+            break;
+            case 39:obj1.style.left = obj1.offsetLeft + 10 + 'px'
+            break;
+            default:break;
+            console.log(touchFn(obj1,obj2))
+        }
+
+
+      
+      function touchFn(obj1, obj2){
+            var l1 = obj1.offsetLeft,
+                r1 = l1 + obj1.offsetWidth,
+                t1 = obj1.offsetTop,
+                b1 = t1 + obj1.offsetHeight;
+            var l2 = obj2.offsetLeft,
+                r2 = l2 + obj2.offsetWidth,
+                t2 = obj2.offsetTop,
+                b2 = t2 + obj2.offsetHeight;
+
+            if (l1 > r2 || r1 < l2 || t1 > b2 || b1 < t2){ // 没有撞上
+                return false;
+            } else { // 撞上了
+                return true;
+            }
+        }
+    })
+</script>
+</html>

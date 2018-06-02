@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            background:red;
+            opacity: 0.5;
+            /* filter: alpha(opacity:50);  ie */
+        }
+        .div2{
+            width: 200px;
+            height: 100px;
+            background: yellow;
+            position: absolute;
+        }
+        .div3{
+            margin-left: 500px;
+            margin-top: 100px;
+            width: 600px;
+            height: 100px;
+
+        }
+        .div3 li{
+            width: 100px;
+            height: 100px;
+            background: green;
+            margin-left: 100px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div style="width:100px;height:100px;">666</div> -->
+    <!-- <div class="div2">233S</div> -->
+    <div class="div3">
+        <li></li>
+        <li></li>
+        <li></li>
+    </div>
+    <script>
+    // var oDiv = document.getElementsByTagName('div')[0]
+    // console.log(oDiv.style.width)
+    // console.log(oDiv)
+    // oDiv.style.width = '200px'
+    // // 1. 行间样式  赋值表示设置元素的样式  js -> 节点对象.style.属性名  这种方式只能获取行间样式，不能获取样式表当中的样式
+    // console.log(window.getComputedStyle(oDiv,false))
+    // console.log(window.getComputedStyle(oDiv,false).backgroundColor)
+    // // alert(oDiv.currentStyle)
+
+    // // 封装获取元素样式的方法
+    // function getStyle(obj, attr){
+    //     if(typeof(obj.currentStyle) =='undefined'){
+    //         return window.getComputedStyle(obj,false)[attr]
+    //     }else{
+    //         return 'ie'+'  ' + obj.currentStyle[attr]
+    //     }
+    //         }
+    // console.log(getStyle(oDiv, 'opacity')); // 0.5
+
+    // // 通过产看方法名是否存在，来判断浏览器类型
+    //     // alert(window.getComputedStyle);
+    //     // 封装获取元素样式的方法
+    //     function getStyle(obj, attr){
+    //         if (window.getComputedStyle){
+    //             return window.getComputedStyle(obj, false)[attr];
+    //         } else { // IE(6-8)
+    //             return obj.currentStyle[attr];
+    //         }
+    //     }
+    // console.log(document); // 整个文档
+    // console.log(document.documentElement); // html
+    // console.log(document.body); // body
+
+    // // 节点对象.scrollTop -> 元素滚动条的偏移距离, 内容向上滚动的像素数
+    //     // 注意：当前节点对象必须要出现滚动条才可以
+    //     // 设置滚动的距离 -> 节点对象ement.scrollTop = intValue
+    // document.onclick = function(){
+    //     console.log(oDiv.scrollTop);
+    // };
+    // offsetWidth -> 获取盒模型的实际宽度
+    // offsetHeight
+    // console.log(oDiv.offsetWidth);
+    // console.log(document.body.scrollTop || document.documentElement.scrollTop);
+    // window.innerWidth -> 获取浏览器窗口的可视区宽度
+    // window.innerHeight
+    // console.log(window.innerWidth);
+    // 封装设置元素样式的方法
+
+    // function setStyle(obj, json){
+    //         for (var attr in json){
+    //             if (attr != 'opacity'){
+    //                 if (typeof json[attr] == 'number'){
+    //                     json[attr] += 'px';
+    //                 }
+    //                 obj.style[attr] = json[attr];
+    //             } else {
+    //                 // chrome , FF
+    //                 obj.style[attr] = json[attr];
+    //                 // IE
+    //                 obj.style.filter = 'alpha(opacity: '+ (json[attr] * 100) +')';
+    //             }
+    //         }
+    //     }
+    
+    // navigator 对象通常用于获取浏览器和操作系统的信息
+    console.log(window.navigator.userAgent); // 浏览器的类型和版本号
+    // window.history 对象包含浏览器的历史
+    // document.onclick = function(){
+    //         window.history.go(0);
+    //     };
+    document.body.onclick = function(){
+        // window.location.href = 'http://baidu.com'
+        // window.open('js.html')
+        // window.close()
+        // window.history.go(0)
+    }
+    // document.getElementsByTagName('div')[0].onclick = function(ev){
+    //     // alert("流弊啊兄弟")
+    //     this.style.backgroundColor = 'green'
+    //     console.log(ev)
+    //     // window.event -> IE(6-8) 中的事件对象
+    //     var oEvent = ev || window.event;
+    //     console.log('光标的横坐标：' + oEvent.clientX);
+    //     // console.log('鼠标横坐标是：'+ event.clientX)
+    // }
+
+    // var obj2 = document.getElementsByClassName('div2')[0]
+    // document.onmousemove = function(eve){
+    //     obj2.style.left = (eve.clientX - obj2.offsetWidth/2) + 'px'//注意obj2.style.width不能获得样式因为只能读取行内的属性
+    //     obj2.style.top = eve.clientY - obj2.offsetHeight/2+'px'
+    // }
+        var obj2 = document.getElementsByClassName('div3')[0].children
+        for(var i = 0 ; i < obj2.length ; i++){
+            obj2[i].index = i
+            obj2[i].onclick = function(){
+                this.style.backgroundColor = 'black'
+                console.log(this.index)
+            }
+            }
+        
+        
+
+
+    </script>
+</body>
+</html>

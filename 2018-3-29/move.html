@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .btn1 {
+            padding: 10px 20px;
+        }
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            left: 400px;
+            top: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn1">点击运动</button>
+    <div id="div1"></div>
+
+    <script src="./velocity.min.js"></script>
+    <script>
+        document.getElementsByClassName('btn1')[0].onclick = function(){
+            Velocity(document.getElementById('div1'), {
+                opacity: 0.5,
+                left: 800,
+            }, {
+                duration: 3000,
+                easing: [.23,.98,.89,.22],
+                begin: function(){
+                    console.log('start');
+                },
+                progress: function(){
+                    console.log(9);
+                },
+                complete: function(){
+                    console.log('end');
+                },
+                // display: 'none',
+                // visibility: 'hidden',
+                // delay: 1000
+            });
+            setTimeout(function(){
+                Velocity(document.getElementById('div1'), {
+                    opacity: 0.5,
+                    top: 400,
+                }, {
+                    duration: 300,
+                    queue: false
+                });
+            }, 1500);
+        };
+    </script>
+</body>
+</html>

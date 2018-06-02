@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inp1">
+    <button id="btn">点击检验</button>
+    <p id="alert"></p>
+
+    <script>
+    var oInp = document.getElementById('inp1')
+    var oBtn = document.getElementById('btn')
+    var oAlert = document.getElementById('alert')
+
+
+    // var oReg = /^(0\d{2,3}-)?[1-9]\d{6,7}$/
+    // var oReg = /^(\d{8,10})@qq\.com$|^(\d{10,11})@163\.com$/
+    var oReg = /^\w+@[1-9a-z]+\.[a-z\.]{2,6}$/
+    //1499147433@qq.com  @163.com @gmail.com  
+    oBtn.onclick = function(){
+        var val = oInp.value
+        if(oReg.test(val)){
+            oAlert.innerHTML = '格式正确'
+        }else{
+            oAlert.innerHTML = '<span style="color:red">格式不正确</span>'
+        }
+        
+    }
+
+
+    var arr = null
+    try {
+        arr[0]
+    } catch (error) {
+        console.log(error)
+        console.error(error)
+    }finally{
+        console.clear()
+    }
+        </script>
+</body>
+</html>
